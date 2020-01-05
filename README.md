@@ -1,5 +1,5 @@
 # Python Final Project
-此项目为18级《Python》与17级《交互式数据可视化》协作期末项目
+来自网新3班林钰江181013002和网新1班周子濠181013090协作完成的Python期末项目
 ## 地下塌陷次数和森林面积的关系
 -  URL:[**数据故事**](http://1146495579.pythonanywhere.com/show/DMTX/)
 ---
