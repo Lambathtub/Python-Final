@@ -1,0 +1,66 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+{%if flag == 0%}
+<title>各省发生地面塌陷次数(最近九年)</title>
+    {%else%}
+  <title>各省地下水每年的水量:亿立方米(最近九年)</title>
+    {%endif%}
+<style type="text/css">
+    h1{
+        color:blue;
+        font-size: 48px;
+        text-align:center;
+    }
+
+    a{
+        position:relative;
+        color:blue;
+        font-size:18px;
+        text-decoration:none;
+        margin-left:45%;
+        }
+</style>
+</head>
+
+<body >
+
+    {%if flag == 0%}
+    <h1>各省发生地面塌陷次数(最近九年)</h1>
+    {%else%}
+    <h1>各省地下水每年的水量(最近九年)</h1>
+    {%endif%}
+        <table align="center" border="0" cellspacing="20">
+            <tr>
+                <th>地区</th>
+                <th>2009</th>
+                <th>2010</th>
+                <th>2011</th>
+                <th>2012</th>
+                <th>2013</th>
+                <th>2014</th>
+                <th>2015</th>
+                <th>2016</th>
+                <th>2017</th>
+            </tr>
+            <tbody >
+            {%for data in datas%}
+                <tr>
+                    {%for i in data%}
+                    <td>{{i}}</td>
+                    {%endfor%}
+                </tr>
+            {%endfor%}
+            </tbody>
+        </table>
+    {%if flag == 0%}
+
+        <a href="/DXS">查看各省地下水每年的水量信息</a>
+
+    {%else%}
+        <a href="/DMTX">查看各省地面塌陷信息</a>
+
+    {%endif%}
+</body>
+</html>

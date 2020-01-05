@@ -1,0 +1,81 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head >
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta http-equiv="refresh" content="15">
+    <link type="text/css" rel="stylesheet" href="/static/css/style.css">
+
+
+</head>
+<body style="background-color: rgba(204,204,204,0.23); text-align:center">
+ 
+ 
+<div class="fav_list">
+    <div data-v-357a65ed="" class="fav_list_box">
+        <div  class="fav_list_title">
+            <h3 class="fav_list_title_h3">正在比赛</h3>
+
+        </div>
+        <div  class="my_fav_con">
+            <div>
+                <ul  class="my_fav_list">
+                    {%for data in datas%}
+                    <li class="my_fav_list_li" id="">
+                        <a  class="my_fav_list_a" href="{{data[0]}}" target="_blank">
+                            {%if data[4] >= 2 and flag == 1%}
+                            <audio src="static/mp3/1.mp3" autoplay></audio>
+                            <font color="red">{{data[5]}} 开始时间:
+                                 <script>
+
+                                function calculation(h, m) {
+                                    var date = new Date();
+                                    new_h = date.getHours();
+                                    new_m = date.getMinutes();
+                                    if (new_m >= m){
+                                        times = (new_h-h) * 60 + (new_m - m);
+                                        }else{
+                                        times = (new_h-h-1) * 60 + (60 - m + new_m);}
+                                    return times;
+                                }
+
+                                document.write(calculation({{data[6]}}, {{data[7]}}));
+
+
+                            </script>
+                            {{data[1]}}  进球比：{{data[2]}} 半场进球比{{data[8]}} 射正比：{{data[3][0][1]}}:{{data[3][1][1]}} 射门比: {{data[3][0][0]}}:{{data[3][1][0]}}</font>
+                            {%else%}
+                            {{data[5]}}
+                            开始时间:<script>
+
+                                function calculation(h, m) {
+                                    var date = new Date();
+                                    new_h = date.getHours();
+                                    new_m = date.getMinutes();
+                                    times = new_h*60+new_m - (h*60+m);
+                                    return times;
+                                }
+
+                                document.write(calculation({{data[6]}}, {{data[7]}}));
+
+
+                        </script>
+                        {{data[1]}}
+                            进球比：{{data[2]}}
+                            半场进球比{{data[8]}}
+                            射正比：{{data[3][0][1]}}:{{data[3][1][1]}}
+                            射门比: {{data[3][0][0]}}:{{data[3][1][0]}}
+                            {%endif%}
+                        </a>
+                    </li>
+                    {%endfor%}
+ 
+                </ul> <!---->
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
